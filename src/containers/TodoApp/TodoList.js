@@ -6,13 +6,18 @@ export default class TodoList extends Component {
     return (
       <ul>
         <li>
-          <TodoItem />
+          <TodoItem
+            title="Item1"
+            completed={false} />
         </li>
         <li>
-          <TodoItem />
+          <TodoItem
+            title="Item2"
+            completed={false} />
         </li>
         <li>
-          <TodoItem />
+          <TodoItem
+            title="Item2" />
         </li>
       </ul>
     );

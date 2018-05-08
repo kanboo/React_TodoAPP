@@ -8,7 +8,10 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        <TodoHeader />
+        <TodoHeader
+          title="Kanboo待辦清單"
+          username="Kanboo"
+          todoCount={99} />
         <InputField />
         <TodoList />
       </div>
