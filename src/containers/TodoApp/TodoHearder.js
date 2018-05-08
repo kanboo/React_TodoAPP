@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 export default class TodoHeader extends Component {
   // 設定 default 值(方法2)
   static defaultProps = {
-    title: '我的待辦清單',
-    username: '無名氏',
+    // title: '我的待辦清單',
+    username: '訪客',
     todoCount: 0,
   }
 
@@ -24,7 +24,9 @@ export default class TodoHeader extends Component {
 
 
 TodoHeader.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   username: PropTypes.string,
   todoCount: PropTypes.number,
 };
+
+// .isRequired：代表一直要傳進來的值，所以defaultProps 就不必設定預設值。
