@@ -10,9 +10,10 @@ export default class InputField extends Component {
   render() {
 
     // 從 this.props 中，取得父元件傳遞的參數
-    const { placeholder } = this.props;
+    // const { placeholder } = this.props;
+    // return <input type="text" placeholder={placeholder} />;
 
-    return <input type="text" placeholder={placeholder} />;
+    return <input {...this.props} />;
   }
 }
 

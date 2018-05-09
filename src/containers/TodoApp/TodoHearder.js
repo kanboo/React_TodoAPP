@@ -22,6 +22,12 @@ export default class TodoHeader extends Component {
   }
 }
 
+// 設定 default 值(方法1)
+// TodoHeader.defaultProps = {
+//     title: '我的待辦清單',
+//     username: '訪客',
+//     todoCount: 0,
+// };
 
 TodoHeader.propTypes = {
   title: PropTypes.string.isRequired,
