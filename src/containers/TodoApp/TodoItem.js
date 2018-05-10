@@ -11,14 +11,11 @@ export default class TodoItem extends Component {
 
     // 使用 class constructor (類別建構子) 初始元件狀態
     this.state = { editable: false };
-
-    // 7. 在 ES6 component class 中，你必須手動綁定 this (不懂這段用意！！)
-    this.toggleMode = this.toggleMode.bind(this);
   }
 
 
   // 切換 閱讀/編輯 模式
-  toggleMode() {
+  toggleMode = () => {
     this.setState({ editable: !this.state.editable });
     // console.log(this);
   }
