@@ -1,52 +1,39 @@
 import React, { Component } from 'react';
+import { prototype } from 'events';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem.js';
 
 
 export default class TodoList extends Component {
-  // 設定 default 值(方法2)
-  static defaultProps = {
-    todos: [],
-  }
 
   render() {
 
-    const {todos} = this.props;
+    const {
+      todos,
+      onUpdateTodo,
+      onToggleTodo,
+      onDeleteTodo,
+    } = this.props;
 
     const todoElements = todos.map(todo => (
       <li key={todo.id}>
         <TodoItem
           title={todo.title}
-          completed={todos.completed} />
+          completed={todo.completed}
+          onUpdate={content => onUpdateTodo(todo.id, content)}
+          onToggle={completed => onToggleTodo(todo.id, completed)}
+          onDelete={() => onDeleteTodo(todo.id)} />
       </li>
       ));
 
-      // console.log(todoElements);
-
     return <ul>{todoElements}</ul>;
-
-    // return (
-    //   <ul>
-    //     <li>
-    //       <TodoItem
-    //         title="Item1"
-    //         completed={false} />
-    //     </li>
-    //     <li>
-    //       <TodoItem
-    //         title="Item2"
-    //         completed={false} />
-    //     </li>
-    //     <li>
-    //       <TodoItem
-    //         title="Item2" />
-    //     </li>
-    //   </ul>
-    // );
   }
 }
 
 
 TodoList.propTypes = {
-  todos: PropTypes.array,
+  todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onUpdateTodo: PropTypes.func.isRequired,
+  onToggleTodo: PropTypes.func.isRequired,
+  onDeleteTodo: PropTypes.func.isRequired,
 };

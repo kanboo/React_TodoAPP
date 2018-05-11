@@ -23,19 +23,28 @@ export default class TodoItem extends Component {
   // 閱讀模式
   renderViewMode() {
     // 從 this.props 中，取得父元件傳遞的參數
-    const { title, completed } = this.props;
+    const {
+      title,
+      completed,
+      onToggle,
+      onDelete
+    } = this.props;
     return (
       <div>
-        <input type="checkbox" checked={completed} />
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => onToggle(!completed)}
+        />
         <span onClick={this.toggleMode}>{title}</span>
-        <button>x</button>
+        <button onClick={() => onDelete()}>x</button>
       </div>
     );
   }
 
   // 編輯模式
   renderEditMode() {
-    const { title, completed } = this.props;
+    const { title, onUpdate } = this.props;
     return (
       <InputField
         autoFocus // autoFocus 讓使用者切換到編輯模式後，可以立即編打
@@ -48,6 +57,10 @@ export default class TodoItem extends Component {
             this.toggleMode();
           }
         }}
+        // onSubmitEditing={(content) => {
+        //   onUpdate(content);
+        //   this.toggleMode();
+        // }}
       />
     );
   }
@@ -63,5 +76,8 @@ export default class TodoItem extends Component {
 TodoItem.propTypes = {
   title: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
