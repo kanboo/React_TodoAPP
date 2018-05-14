@@ -8,28 +8,16 @@ export default class Main extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      todos: [
-      {
-        id: 1,
-        title: '去買飯 1',
-        completed: false
-      },
-      {
-        id: 2,
-        title: '去買飯 2',
-        completed: true
-      },
-      {
-        id: 3,
-        title: '去買飯 3',
-        completed: false
-      },
-      {
-        id: 4,
-        title: '去買飯 4',
-        completed: false
-      }]
+      todos: []
     };
+  }
+
+  componentDidMount() {
+    // 3. 使用 ajax 請求 API：
+    //    並將取回的待辦資料更新元件 state（見下一步）
+    fetch('http://jsonplaceholder.typicode.com/todos') // 1. 使用 fetch 回傳的是 promise 物件
+    .then(response => response.json()) // 2. 解析 response 資料，將它轉成 js 物件
+    .then(todos => this.setState({ todos })); // 3. 更新元件 state
   }
 
   // 更新todos
@@ -75,20 +63,19 @@ export default class Main extends Component {
   render() {
     const { todos } = this.state;
 
-    // 使用 Spread Operator 賦值
-    const headerProps = {
-      title: "Kanboo待辦清單",
-      username: "Kanboo",
-      todoCount: todos.filter(todo => !todo.completed).length,
-    };
-
     return (
       <div>
-        <TodoHeader {...headerProps} />
+        <TodoHeader
+          title="Kanboo待辦清單"
+          username="Kanboo"
+          todoCount={todos.filter(todo => !todo.completed).length}
+        />
+
         <InputField
           placeholder="Add Item"
-          // onSubmitEditing={this.updateTodosBy(this._createTodo)}
+          onSubmitEditing={this.updateTodosBy(this._createTodo)}
         />
+
         <TodoList
           todos={todos}
           onUpdateTodo={this.updateTodosBy(this._updateTodo)}

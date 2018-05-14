@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import InputField from './InputField.js';
 
 
-const msgbox = () => console.log(this);
-
 export default class TodoItem extends Component {
   constructor(props, context) {
     super(props, context);
@@ -57,10 +55,10 @@ export default class TodoItem extends Component {
             this.toggleMode();
           }
         }}
-        // onSubmitEditing={(content) => {
-        //   onUpdate(content);
-        //   this.toggleMode();
-        // }}
+        onSubmitEditing={(content) => {
+          onUpdate(content);
+          this.toggleMode();
+        }}
       />
     );
   }

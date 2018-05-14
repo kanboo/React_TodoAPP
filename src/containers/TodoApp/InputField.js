@@ -5,19 +5,13 @@ export default class InputField extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = { value: props.value || '' };
-
   }
 
-
-  // 設定 default 值(方法2)
-  static defaultProps = {
-    value: '',
-    placeholder: '新增待辦事項',
-  }
 
   handleChange = (e) => {
     this.setState({ value: e.target.value });
   };
+
 
   handleKeyDown = (e) => {
     const {
@@ -28,12 +22,14 @@ export default class InputField extends Component {
     switch (e.keyCode) {
       case 13:
         if (value.trim()) {
-          onSubmitEditing && onSubmitEditing(value);
+          onSubmitEditing(value);
         }
         this.setState({ value: '' });
         break;
+      default:
+        break;
     }
-    onKeyDown && onKeyDown(e);
+    onKeyDown(e);
   };
 
 
@@ -42,6 +38,7 @@ export default class InputField extends Component {
     // 從 this.props 中，取得父元件傳遞的參數
     // const { placeholder } = this.props;
     // return <input type="text" placeholder={placeholder} />;
+    // const { onSubmitEditing } = this.props;
 
     return (
       <input
@@ -55,8 +52,16 @@ export default class InputField extends Component {
   }
 }
 
+InputField.defaultProps = {
+  value: '',
+  placeholder: '新增待辦事項',
+  onKeyDown: () => {},
+  onSubmitEditing: () => {},
+};
+
 InputField.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  onKeyDown: PropTypes.string,
+  onKeyDown: PropTypes.func,
+  onSubmitEditing: PropTypes.func,
 };
