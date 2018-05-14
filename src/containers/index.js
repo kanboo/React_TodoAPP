@@ -13,8 +13,7 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    // 3. 使用 ajax 請求 API：
-    //    並將取回的待辦資料更新元件 state（見下一步）
+    // 使用 ajax 請求 API，並將取回的待辦資料更新元件 state（見下一步）
     fetch('http://jsonplaceholder.typicode.com/todos') // 1. 使用 fetch 回傳的是 promise 物件
     .then(response => response.json()) // 2. 解析 response 資料，將它轉成 js 物件
     .then(todos => this.setState({ todos })); // 3. 更新元件 state
