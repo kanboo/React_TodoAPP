@@ -14,8 +14,8 @@ export default class TodoHeader extends Component {
     const {title, username, todoCount} = this.props;
 
     return (
-      <div>
-        <h1>{title}</h1>
+      <div className="TodoHeader">
+        <h1><i className="fa fa-address-book-o" aria-hidden="true" /> {title}</h1>
         <span>哈囉，{username}：你有 {todoCount} 項未完成待辦事項</span>
       </div>
     );

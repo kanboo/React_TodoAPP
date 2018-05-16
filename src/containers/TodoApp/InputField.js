@@ -41,13 +41,16 @@ export default class InputField extends Component {
     // const { onSubmitEditing } = this.props;
 
     return (
-      <input
-        {...this.props}
-        type="text"
-        value={this.state.value}
-        onChange={this.handleChange}
-        onKeyDown={this.handleKeyDown}
-      />
+      <div className="InputField">
+        <input
+          {...this.props}
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+          onKeyDown={this.handleKeyDown}
+        />
+      </div>
+
     );
   }
 }

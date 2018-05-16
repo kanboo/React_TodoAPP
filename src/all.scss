@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins|Skranji');
+// font-family: 'Skranji', cursive;
+// font-family: 'Poppins', sans-serif;
+html {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  width: 960px;
+  display: flex;
+  justify-content: center;
+}
+
+.TodoHeader {
+  margin-bottom: 20px;
+}
+
+.InputField {
+  p {
+    display: inline;
+  }
+}
+
+// .TodoList {
+// }

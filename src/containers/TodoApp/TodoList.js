@@ -26,7 +26,13 @@ export default class TodoList extends Component {
       </li>
       ));
 
-    return <ul>{todoElements}</ul>;
+    return (
+      <div className="TodoList">
+        <p>待辦清單：</p>
+        <ul >{todoElements}</ul>
+      </div>
+
+    );
   }
 }
 

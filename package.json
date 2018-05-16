@@ -17,6 +17,8 @@
   "license": "ISC",
   "private": true,
   "dependencies": {
+    "font-awesome": "^4.7.0",
+    "normalize.css": "^8.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },
