@@ -27,11 +27,53 @@ body {
   margin-bottom: 20px;
 }
 
+.InputField {}
+
+ul {
+  list-style: none;
+  /* Remove list bullets */
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-top: 8px;
+  button {
+    margin-left: 5px;
+    border: 0;
+    background: transparent;
+    color: rgb(255, 1, 1);
+  }
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  width: 1.1em;
+  height: 1.1em;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #000;
+  margin-right: 5px;
+  &:checked::before {
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    content: "✔";
+    color: #3abea5;
+    display: inline-block; // font-size: 26.66667px;
+    text-align: center;
+    line-height: 1.2em;
+  }
+}
+
 .InputField {
+  input {
+    width: 520px;
+  }
   p {
     display: inline;
   }
 }
-
-// .TodoList {
-// }

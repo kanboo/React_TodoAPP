@@ -35,7 +35,7 @@ export default class TodoItem extends Component {
           onChange={() => onToggle(!completed)}
         />
         <span onClick={this.toggleMode}>{title}</span>
-        <button onClick={() => onDelete()}>x</button>
+        <button onClick={() => onDelete()}><i className="fa fa-trash" aria-hidden="true" /></button>
       </div>
     );
   }
